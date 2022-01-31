@@ -10,20 +10,21 @@ namespace BasicProgram
     {
         public void toss()
         {
+            const double CHECK = 0.5;
 
             double heads = 0;
             double tails = 0;
             {
                 Console.WriteLine("Enter your No. of times to flip coin");
-                double num = Convert.ToInt32(Console.ReadLine());
-
-                for (int i = 0; i < num; i++) ;
+                 int result = Convert.ToInt32(Console.ReadLine());
+               
+                for (int i = 0; i < result; i++);
                 {
-                    Random rand = new Random();
-                    int result = rand.Next(0, 2);
+                    Random random = new Random();
+                    double option = random.NextDouble();
 
 
-                    if (result > 0)
+                    if (option < CHECK)
                     {
                         heads++;
                     }
@@ -34,8 +35,8 @@ namespace BasicProgram
 
                 }
             }
-                Console.WriteLine("Percentage of Head " + (Heads * 100 / 10));
-                Console.WriteLine("Percentage of Tail " + (Tails * 100 / 10));
+                Console.WriteLine("Percentage of Head " + (heads /(heads+tails) * 100));
+                Console.WriteLine("Percentage of Tail " + (tails/(heads+tails) * 100));
                 Console.ReadKey();
 
 
